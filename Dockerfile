@@ -2,7 +2,7 @@ FROM composer:2 AS vendor
 
 WORKDIR /app
 COPY composer.json ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress
+RUN composer install --no-dev --optimize-autoloader --no-interaction --no-progress --ignore-platform-req=ext-grpc
 
 FROM php:8.3-apache
 
