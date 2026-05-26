@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+
+vendor/
+composer.lock
+
+data/*.json
+data/*.sqlite
+
+.DS_Store
+Thumbs.db
+
+*.log
+*.tmp
