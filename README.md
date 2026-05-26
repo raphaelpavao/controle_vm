@@ -18,8 +18,7 @@ Sistema web em PHP MVC para administrar empresas, servidores fisicos e maquinas 
 Requisitos:
 
 - PHP 8.1 ou superior.
-- Composer apenas quando for usar Firestore em producao.
-- Extensao PHP gRPC quando for usar o cliente oficial do Firestore.
+- O Firestore em producao usa a API REST e a service account do Cloud Run.
 
 Por padrao, o sistema usa JSON local:
 
@@ -69,12 +68,6 @@ GOOGLE_CLOUD_PROJECT=seu-projeto-google
 FIRESTORE_DATABASE=(default)
 ADMIN_DEFAULT_EMAIL=seu-email
 ADMIN_DEFAULT_PASSWORD=uma-senha-forte
-```
-
-Antes de usar Firestore, instale as dependencias:
-
-```bash
-composer install --no-dev --optimize-autoloader
 ```
 
 No Google Cloud Run, prefira autenticar pelo service account do servico, sem salvar chave JSON no projeto.

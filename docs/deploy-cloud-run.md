@@ -77,4 +77,4 @@ Com Firestore configurado e credenciais disponiveis:
 APP_STORAGE=firestore php scripts/migrate-json-to-firestore.php
 ```
 
-O script le `data/controle_vm.json` e cria/atualiza os documentos no Firestore.
+O script le `data/controle_vm.json` e cria/atualiza os documentos no Firestore. Fora do Cloud Run, forneca um token OAuth valido em `FIRESTORE_ACCESS_TOKEN` ou `GOOGLE_OAUTH_ACCESS_TOKEN`.
