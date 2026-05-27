@@ -15,7 +15,9 @@ abstract class Controller
 
     protected function redirect(string $route): void
     {
-        header('Location: ?route=' . urlencode($route));
+        [$path, $query] = array_pad(explode('&', $route, 2), 2, '');
+
+        header('Location: ?route=' . rawurlencode($path) . ($query !== '' ? '&' . $query : ''));
         exit;
     }
 
