@@ -108,3 +108,4 @@ Documentacao complementar:
 
 - `docs/deploy-cloud-run.md`
 - `docs/github-actions-cloud-run.md`
+- `docs/update-production.md`
