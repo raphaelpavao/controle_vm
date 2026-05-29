@@ -4,7 +4,7 @@
             <span class="brand-mark">VM</span>
             <strong><?= e($appName) ?></strong>
         </div>
-        <h1>Acesso ao sistema testes de deployment</h1>
+        <h1>Acesso ao sistema teste</h1>
 
         <?php if (!empty($errors['login'])): ?>
             <div class="flash error"><?= e($errors['login']) ?></div>
