@@ -79,6 +79,12 @@ Rode o build e deploy via `cloudbuild.yaml`:
 gcloud builds submit --config cloudbuild.yaml
 ```
 
+Para informar uma tag manual:
+
+```bash
+gcloud builds submit --config cloudbuild.yaml --substitutions _TAG=manual
+```
+
 Aguarde terminar com:
 
 ```text

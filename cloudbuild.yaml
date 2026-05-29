@@ -2,6 +2,7 @@ substitutions:
   _REGION: southamerica-east1
   _ARTIFACT_REPOSITORY: controle-vm
   _IMAGE_NAME: controle-vm
+  _TAG: manual
   _SERVICE_NAME: controle-vm
   _SERVICE_ACCOUNT_NAME: controle-vm-runner
   _ADMIN_EMAIL: admin@local
@@ -12,7 +13,7 @@ steps:
     args:
       - build
       - -t
-      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:$SHORT_SHA
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:${_TAG}
       - -t
       - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:latest
       - .
@@ -20,7 +21,7 @@ steps:
   - name: gcr.io/cloud-builders/docker
     args:
       - push
-      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:$SHORT_SHA
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:${_TAG}
 
   - name: gcr.io/cloud-builders/docker
     args:
@@ -36,7 +37,7 @@ steps:
       - --project
       - $PROJECT_ID
       - --image
-      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:$SHORT_SHA
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:${_TAG}
       - --region
       - ${_REGION}
       - --platform
@@ -50,5 +51,5 @@ steps:
       - ADMIN_DEFAULT_PASSWORD=${_SECRET_NAME}:latest
 
 images:
-  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:$SHORT_SHA
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:${_TAG}
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_ARTIFACT_REPOSITORY}/${_IMAGE_NAME}:latest
